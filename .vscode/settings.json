@@ -8,4 +8,5 @@
     "java.dependency.syncWithFolderExplorer": true,
     "java.project.explorer.showNonJavaResources": true,
     "redhat.telemetry.enabled": false,
+    "java.debug.settings.onBuildFailureProceed": true,
 }

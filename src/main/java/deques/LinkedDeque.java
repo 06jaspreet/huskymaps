@@ -32,26 +32,42 @@ public class LinkedDeque<E> implements Deque<E> {
 
     @Override
     public void addFirst(E element) {
-        size += 1;
+        
         // TODO: Replace with your code
-        throw new UnsupportedOperationException("Not implemented yet");
+        Node<E> newNode = new Node <> (element, front, front.next);
+        front.next.prev = newNode;
+        front.next = newNode;
+        size += 1;
+        
+        //throw new UnsupportedOperationException("Not implemented yet");
     }
 
     @Override
     public void addLast(E element) {
-        size += 1;
+        
         // TODO: Replace with your code
-        throw new UnsupportedOperationException("Not implemented yet");
+        Node<E> newNode = new Node <> (element,back.prev, back);
+        back.prev.next = newNode;
+        back.prev = newNode;
+        size += 1;
+        
+        //throw new UnsupportedOperationException("Not implemented yet");
     }
+
 
     @Override
     public E removeFirst() {
         if (size == 0) {
             return null;
         }
-        size -= 1;
+        
         // TODO: Replace with your code
-        throw new UnsupportedOperationException("Not implemented yet");
+        Node<E> first = front.next;    
+        front.next = first.next;
+        first.next.prev = front;
+        size -= 1;
+        return first.value;
+        //throw new UnsupportedOperationException("Not implemented yet");
     }
 
     @Override
@@ -59,9 +75,15 @@ public class LinkedDeque<E> implements Deque<E> {
         if (size == 0) {
             return null;
         }
-        size -= 1;
+        
         // TODO: Replace with your code
-        throw new UnsupportedOperationException("Not implemented yet");
+        Node<E> last = back.prev;
+        back.prev = last.prev;  
+        back.prev.next = back;    
+        size -= 1;
+        return last.value;
+
+        //throw new UnsupportedOperationException("Not implemented yet");
     }
 
     @Override
